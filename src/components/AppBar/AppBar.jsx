@@ -1,24 +1,28 @@
-import { View, Pressable, Text } from "react-native";
+import { Text, ScrollView } from "react-native";
+import { Link } from "react-router-native";
 import styles from "./AppBar.styles";
 
-const AppBarTab = () =>{ 
-  const handlePressAppBar = () => console.log("AppBar!")
+const AppBarTab = ({children, to}) =>{ 
+  const handlePressAppBar = () => console.log(children)
 
   return (
-    <Pressable
+    <Link
+      to={to}
       onPress={handlePressAppBar}
     >
-      <Text style={styles.text}>Repositories</Text>
-    </Pressable>
+      <Text style={styles.text}>{children}</Text>
+    </Link>
   )}
 
 const AppBar = () => {
   return (
-    <View
+    <ScrollView
+      horizontal
       style={styles.container}
     >
-      <AppBarTab />
-    </View>
+      <AppBarTab to="/">Repositories</AppBarTab>
+      <AppBarTab to="signIn">Sign in</AppBarTab>
+    </ScrollView>
   )
 }
 

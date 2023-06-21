@@ -4,6 +4,7 @@ import theme from "../../styles/themes";
 
 const styles = StyleSheet.create({
   container: {
+    flexDirection: "row",
     paddingTop: Constants.statusBarHeight,
     backgroundColor: theme.colors.barBackground,
   },
