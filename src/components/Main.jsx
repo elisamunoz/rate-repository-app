@@ -1,17 +1,19 @@
-// import Constants from 'expo-constants';
-import { View } from "react-native"
-// import RepositoryList from './RepositoryList';
-import Text from './Text';
-// import styles from "../styles/Main.styles";
+import { View } from "react-native";
+import { Route, Routes, Navigate } from 'react-router-native'
+import RepositoryList from './RepositoryList';
+import AppBar from "./AppBar/AppBar";
+import styles from "../styles/Main.styles";
 
 
 const Main = () => {
   return (
-    <View>
-      <Text>Simple Text</Text>
-      <Text style={{ paddingBottom: 10 }}>Text with custom style</Text>
-      <Text fontWeight="bold" fontSize="subheading">Bold subheading</Text>
-      <Text color="textSecondary">Text with secondary color</Text>
+    <View style={styles.main}>
+      <AppBar />
+      <Routes>
+        <Route path="/" element={<RepositoryList />} exact />
+        {/* for catching paths that don't match any previously defined path */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     </View>
   );
 };
