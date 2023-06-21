@@ -1,9 +1,9 @@
 import { StyleSheet } from "react-native";
+import theme from "./themes";
 
 const styles = StyleSheet.create({
   main: {
-    paddingTop: 20,
-    background: "red"
+    backgroundColor: theme.colors.mainBackgroundColor
   }
 })
 
